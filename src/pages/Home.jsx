@@ -30,36 +30,36 @@ function Home() {
 
           {/* card content  */}
           <div
-            className="border flex h-50 p-5 bg-blue-500">
+            className="border flex h-50 p-5 bg-linear-to-tr from-sky-700 to-sky-400 rounded-xl shadow-lg">
             <div className="flex-1">
               <span 
-                className="text-3xl ">Shipped Orders</span>
+                className="text-3xl font-bold">Shipped Orders</span>
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl">45</span>
+              <span className="text-5xl font-extrabold  ">45</span>
             </div>
           </div>
           <div
-            className="border flex h-50 p-5 bg-red-400">
+            className="border flex h-50 p-5 bg-linear-to-tr from-red-500 to-red-400 rounded-xl shadow-lg">
             <div className="flex-1">
               <span 
-                className="text-3xl ">Pendding Orders</span>
+                className="text-3xl font-bold">Pendding Orders</span>
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl">50</span>
+              <span className="text-5xl font-extrabold  ">50</span>
             </div>
           </div>
           <div
-            className="border flex h-50 p-5 bg-green-500">
+            className="border flex h-50 p-5 bg-linear-to-tr from-green-600 to-green-400 rounded-xl shadow-lg">
             <div className="flex-1">
               <span 
-                className="text-3xl ">New Orders</span>
+                className="text-3xl font-bold">New Orders</span>
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl">35</span>
+              <span className="text-5xl font-extrabold  ">35</span>
             </div>
           </div>
           
@@ -67,10 +67,11 @@ function Home() {
         </div>
 
         {/* main content  */}
-      <div>
+      <div
+        className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
 
         <div
-          className="bg-neutral-800 p-5 rounded-xl space-y-2">
+          className="bg-neutral-800 p-5 rounded-xl space-y-2 ">
             <h1 className="text-2xl">Recent Activity</h1>
             <div
               className="border-b flex items-center justify-between">

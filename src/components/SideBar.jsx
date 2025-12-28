@@ -8,7 +8,7 @@ import { FcSettings } from 'react-icons/fc';
 function SideBar() {
   return (
     <div
-          className='sidebar w-50 h-screen bg-neutral-800 shrink-0 grow-0'>
+          className='sidebar w-50 bg-neutral-800 shrink-0 grow-0 h-full'>
             <span
               className='text-4xl bg-[#333] p-4 rounded-full'>
                 <Link><BiCart /></Link></span>
