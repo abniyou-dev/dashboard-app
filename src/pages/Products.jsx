@@ -1,8 +1,13 @@
 import React from 'react'
+import SideBar from '../components/SideBar'
 
 function Products() {
   return (
-    <div>Products</div>
+    <div className="w-full min-h-screen bg-neutral-900 text-white flex">
+      <div>
+        <SideBar />
+      </div>
+    </div>
   )
 }
 
