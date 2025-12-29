@@ -2,6 +2,7 @@ import React from "react";
 import SideBar from "../components/SideBar";
 import DashboardHeader from "../components/DashboardHeader";
 import { RiChatCheckFill } from "react-icons/ri";
+import { DashNumbers } from "../data/DashData";
 
 function Home() {
   // download the json-server package
@@ -9,6 +10,9 @@ function Home() {
 
   // run the json server
   // json-server --watch db.json --port 5000
+
+  const DashData = DashNumbers();
+
 
   return (
     <div className="w-full min-h-screen bg-neutral-900 text-white flex">

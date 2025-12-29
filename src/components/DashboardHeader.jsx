@@ -1,15 +1,19 @@
 import React from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { BiBell, BiMessage } from "react-icons/bi";
+import { DashNumbers } from "../data/DashData";
 
 function DashboardHeader() {
+
+    const DashData = DashNumbers();
+  
   return (
     <div className="w-full">
       <span>Total Revenue</span>
       <div className="flex items-center justify-between gap-5">
         <div
             className="flex flex-col md:flex-row md:items-end md:gap-2">
-          <span className="text-sm md:text-2xl">$45,434.00 </span>
+          <span className="text-sm md:text-2xl">${DashData.totalRevenu}</span>
           <span className="text-[11px] md:text-sm">
             <span className="text-red-400">-1,2954</span>
             <span className="text-green-400">+2,2954</span>
