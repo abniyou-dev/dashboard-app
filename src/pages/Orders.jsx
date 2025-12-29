@@ -26,9 +26,7 @@ function orders() {
         <div className="grid">
           <h1 className="text-4xl font-bold tracking-wider">Orders</h1>
           <span className="text-sm text-neutral-400">Total Orders : {ordersData.length}</span>
-          <button 
-            onClick={handleclick}
-            className="bg-sky-800">show</button>
+
         </div>
 
         {/* searchh box */}
