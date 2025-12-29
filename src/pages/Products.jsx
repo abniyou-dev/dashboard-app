@@ -7,7 +7,7 @@ function Products() {
   const [data, setData] = useState([]);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [filtredProducts, setFilredProducts] = useState([]);
+  const [filtredProducts, setFilredProducts] = useState();
 
   const arrTest = [{name: 'bnx'}, {name: 'reda'},{name: 'mooohamed'},{name: 'is'},];
 
@@ -28,6 +28,9 @@ function Products() {
           const sorted = [...data].sort((el1, el2) => el1.rating.rat + el2.rating.rate)
           setFilredProducts(sorted)
           break;
+      }
+      default : {
+        break;
       }
 
     }
@@ -69,6 +72,7 @@ function Products() {
             <select name="select" id=""
               onChange={(e) => handleChange(e)}
               className='px-3 py-2 bg-neutral-800 outline-none'>
+              <option value="">Select</option>
               <option value="name">Name</option>
               <option value="price">Price</option>
               <option value="rating">rate</option>
@@ -98,6 +102,24 @@ function Products() {
           <div
             className='space-y-5 my-5'>
             {filtredProducts && filtredProducts.map(product => 
+              <div key={product.id}
+                className='flex items-center justify-between  
+                     bg-neutral-800 p-4 rounded w-full'>
+                <div
+                  className='flex gap-2 max-w-[80%]'> 
+                  <img src={product.image} alt="" className='size-7.5'/>
+                  <span>{product.title}</span>
+                </div>
+                <div
+                  className='grid gap-2 max-w-[35%] text-center'> 
+                  <span>{product.price}$</span>
+                  <button
+                    className='bg-neutral-900 px-2 py-1 rounded
+                      cursor-pointer'>Open In Stock</button>
+                </div>
+              </div>
+            )}
+            {filtredProducts == null && data.map(product => 
               <div key={product.id}
                 className='flex items-center justify-between  
                      bg-neutral-800 p-4 rounded w-full'>
