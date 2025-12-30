@@ -4,6 +4,7 @@ import DashboardHeader from "../components/DashboardHeader";
 import { RiChatCheckFill } from "react-icons/ri";
 import { DashNumbers } from "../data/DashData";
 import { ordersData } from "../data/OrdersData";
+import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 function Home() {
   // download the json-server package
@@ -12,14 +13,20 @@ function Home() {
   // run the json server
   // json-server --watch db.json --port 5000
 
-  const DashData = DashNumbers();
 
-    let pendding, shipped, delivered;
+  const DashData = DashNumbers();
+  let pendding, shipped, delivered;
+
+  const ordData = [
+    {name : "Pending", value : ordersData.filter(or => or.status === "pending").length},
+    {name : "Shipped", value : ordersData.filter(or => or.status === "shipped").length},
+    {name : "Deliveres", value : ordersData.filter(or => or.status === "delivered").length},
+  ]
     
   const getdata = () => {
-     pendding = ordersData.filter(or => or.status === "pending");
-     shipped = ordersData.filter(or => or.status === "shipped");
-     delivered = ordersData.filter(or => or.status === "delivered");
+     pendding = ordersData.filter(or => or.status === "pending").length;
+     shipped = ordersData.filter(or => or.status === "shipped").length;
+     delivered = ordersData.filter(or => or.status === "delivered").length;
   }
 
   getdata();
@@ -50,7 +57,7 @@ function Home() {
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl font-extrabold  ">{pendding.length}</span>
+              <span className="text-5xl font-extrabold  ">{pendding}</span>
             </div>
           </div>
           <div
@@ -61,7 +68,7 @@ function Home() {
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl font-extrabold  ">{pendding.length}</span>
+              <span className="text-5xl font-extrabold  ">{pendding}</span>
             </div>
           </div>
           <div
@@ -72,7 +79,7 @@ function Home() {
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl font-extrabold  ">{delivered.length}</span>
+              <span className="text-5xl font-extrabold  ">{delivered}</span>
             </div>
           </div>
           
@@ -81,7 +88,7 @@ function Home() {
 
         {/* main content  */}
       <div
-        className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
+        className="grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] gap-4">
 
         <div
           className="bg-neutral-800 p-5 rounded-xl space-y-2 ">
@@ -132,6 +139,17 @@ function Home() {
               <span className="bg-red-700 mr-5 text-sm rounded-xl px-3">Uroent</span>
             </div>
             
+        </div>
+
+        <div  className="w-full bg-white rounded-lg p-4 min-h-[350px]">
+          <ResponsiveContainer width={"100%"} height={"100%"}>
+            <BarChart data={ordData}>
+              <XAxis dataKey={"name"} />
+              <YAxis allowDecimals={false} />
+              <Tooltip />
+              <Bar dataKey={"value"} radius={[4, 4, 0, 0]} fill="#3b82f6" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
       </div>
