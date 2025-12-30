@@ -3,6 +3,7 @@ import SideBar from "../components/SideBar";
 import DashboardHeader from "../components/DashboardHeader";
 import { RiChatCheckFill } from "react-icons/ri";
 import { DashNumbers } from "../data/DashData";
+import { ordersData } from "../data/OrdersData";
 
 function Home() {
   // download the json-server package
@@ -13,7 +14,15 @@ function Home() {
 
   const DashData = DashNumbers();
 
+    let pendding, shipped, delivered;
+    
+  const getdata = () => {
+     pendding = ordersData.filter(or => or.status === "pending");
+     shipped = ordersData.filter(or => or.status === "shipped");
+     delivered = ordersData.filter(or => or.status === "delivered");
+  }
 
+  getdata();
   return (
     <div className="w-full min-h-screen bg-neutral-900 text-white flex">
 
@@ -41,7 +50,7 @@ function Home() {
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl font-extrabold  ">45</span>
+              <span className="text-5xl font-extrabold  ">{pendding.length}</span>
             </div>
           </div>
           <div
@@ -52,7 +61,7 @@ function Home() {
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl font-extrabold  ">50</span>
+              <span className="text-5xl font-extrabold  ">{pendding.length}</span>
             </div>
           </div>
           <div
@@ -63,7 +72,7 @@ function Home() {
             </div>
             <div
               className="flex items-center justify-center">
-              <span className="text-5xl font-extrabold  ">35</span>
+              <span className="text-5xl font-extrabold  ">{delivered.length}</span>
             </div>
           </div>
           
